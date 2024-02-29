@@ -206,7 +206,7 @@ operators.forEach((operator) => {
 
         if (num1 == null) {
           num1 = display.value;
-          equation =+ num1
+          equation = +num1;
         } else if (equalClicked) {
           // Have to set num2 = null if equalClicked because it will assign the result when pressing the equal sign to num2
           num2 = null;
@@ -215,7 +215,7 @@ operators.forEach((operator) => {
           turnBackgroundOff();
         } else {
           num2 = display.value;
-          equation += num2
+          equation += num2;
           display.value = evaluate(num1, num2);
         }
 
