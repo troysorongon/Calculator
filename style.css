@@ -26,10 +26,15 @@ body{
     height: 60px;
 }
 
-#clearRow button{
-    display: block;
-    width: 252px;
-    margin-bottom: 5px;
+#editRow{
+    display: flex;
+    gap: 13px;
+    margin-bottom: 10px;
+}
+
+#editRow button{
+width: 120px;
+height: 60px;
 }
 
 #calculator #display input{

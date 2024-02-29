@@ -164,7 +164,7 @@ numbers.forEach((number) => {
 });
 
 // Clears the display when you click the clear button
-const clear = document.querySelector("#clearRow button");
+const clear = document.querySelector("#editRow #clear");
 clear.addEventListener("click", () => {
   // Clears the display of the current number
   display.value = "";
@@ -183,6 +183,13 @@ clear.addEventListener("click", () => {
   turnBackgroundOffAll();
 });
 
+// Deletes the previous number in the input
+const deleteNum = document.querySelector("#editRow #delete");
+deleteNum.addEventListener("click", () => {
+  console.log("Delete");
+  display.value = display.value.slice(0, -1);
+});
+
 // Math Operators
 const operators = document.querySelectorAll(".operator");
 operators.forEach((operator) => {
@@ -199,6 +206,7 @@ operators.forEach((operator) => {
 
         if (num1 == null) {
           num1 = display.value;
+          equation =+ num1
         } else if (equalClicked) {
           // Have to set num2 = null if equalClicked because it will assign the result when pressing the equal sign to num2
           num2 = null;
@@ -207,6 +215,7 @@ operators.forEach((operator) => {
           turnBackgroundOff();
         } else {
           num2 = display.value;
+          equation += num2
           display.value = evaluate(num1, num2);
         }
 
@@ -217,6 +226,7 @@ operators.forEach((operator) => {
         // Sets the booleans for the operation that is going to be performed to true and the rest to false
         if (operationClicked) {
           setMathOp(operator.value);
+          equation += operator.value;
         }
       }
       //   Already clicked an operator and decided to pick a different operator
